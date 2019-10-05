@@ -75,3 +75,10 @@ script:
   #- sudo make install
   - popd
   - popd
+
+  - drogon/build/drogon_ctl/drogon_ctl create project static_page
+  - cp static_page_changes/* static_page
+  - pushd static_page/build
+  - cmake -DCMAKE_CXX_COMPILER=${CXX:-c++} -DCMAKE_BUILD_TYPE=Release ..
+  - cmake --build .
+  - popd
