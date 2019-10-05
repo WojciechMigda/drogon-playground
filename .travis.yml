@@ -81,4 +81,6 @@ script:
   - pushd static_page/build
   - cmake -DCMAKE_CXX_COMPILER=${CXX:-c++} -DCMAKE_BUILD_TYPE=Release ..
   - cmake --build .
+  - echo '<h1>Hello Drogon!</h1>' >> index.html
+  - ( ./static_page ) & sleep 5 ; pkill static_page
   - popd
